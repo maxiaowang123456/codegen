@@ -1,0 +1,28 @@
+package ${pojo.packageName};
+
+import java.io.Serializable;
+#foreach(${im} in ${importList})
+import ${im};
+#end
+
+public class ${pojo.className} implements Serializable{
+
+    public ${pojo.className}(){}
+
+#foreach($field in $fieldList)
+    private ${field.dataType} ${field.name};
+#end
+#foreach($field in $fieldList)
+
+    public ${field.dataType} get${field.upName}(){
+        return ${field.name};
+    }
+
+    public void set${field.upName}(${field.dataType} ${field.name})}{
+        this.${field.name}=${field.name};
+    }
+#end
+
+}
+
+
